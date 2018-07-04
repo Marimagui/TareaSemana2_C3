@@ -15,10 +15,6 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
-
-    private TextView mDisplayDate;
-    private DatePickerDialog.OnDateSetListener mDataSetListener;
 
     EditText campoNombre, campoTelefono, campoEmail, campoDescripcion;
     String campoFecha;
@@ -34,38 +30,17 @@ public class MainActivity extends AppCompatActivity {
         campoEmail = (EditText) findViewById(R.id.etxtEmail);
         campoDescripcion = (EditText) findViewById(R.id.etxtDescripcion);
 
-
-        mDisplayDate = (TextView) findViewById(R.id.txtFechaNacimiento);
-        mDisplayDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Calendar cal = Calendar.getInstance();
-                int ano = cal.get(Calendar.YEAR);
-                int mes = cal.get(Calendar.MONTH);
-                int dia = cal.get(Calendar.DAY_OF_MONTH);
-
-                DatePickerDialog dialog = new DatePickerDialog(MainActivity.this,
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
-                        mDataSetListener,ano,mes,dia);
-                dialog.show();
-            }
-        });
-
-        mDataSetListener = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                month = month+1;
-                Log.d(TAG, "onDateSet:date:" + year+"/"+month+"/"+dayOfMonth);
-
-                campoFecha= dayOfMonth +"/"+month+"/"+year;
-            }
-        };
-
-
-
-    }
+        }
 
     public void onClick(View view) {
+
+        DatePicker fecha = (DatePicker) findViewById(R.id.dpFecha) ;
+        int dia = fecha.getDayOfMonth();
+        int mes = fecha.getMonth()+1;
+        int ano = fecha.getYear();
+
+        campoFecha = dia +"/"+mes+"/"+ano;
+
         Intent intent = new Intent(MainActivity.this, DetalleContacto.class);
 
         Bundle bundle = new Bundle();
