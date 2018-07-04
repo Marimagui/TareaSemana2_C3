@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">TareaSemana2_C3</string>
+    <string name="Nombre">Nombre completo</string>
+    <string name="F_nacimiento">Set date   Fecha de nacimiento</string>
+    <string name="Telefono">Telefono</string>
+    <string name="Email">Email</string>
+    <string name="Descripcion">Descripcion Contacto</string>
+    <string name="Siguiente">Siguiente</string>
+    <string name="Confirmar">Confirmar Datos</string>
+    <string name="Fecha">Fecha de Nacimiento: </string>
+    <string name="Correo">Email: </string>
+    <string name="Telf">Tel. </string>
+    <string name="Descripcion2">Descripción: </string>
+    <string name="Editar">Editar Datos</string>
+</resources>
